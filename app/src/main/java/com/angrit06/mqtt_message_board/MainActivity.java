@@ -18,7 +18,8 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-    String topic;
+    private static String topic;
+//    String topic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Snackbar", Snackbar.LENGTH_LONG)
-//                        .setAction("snack", null).show();
-//            }
-//        });
     }
 
     @Override
@@ -81,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public String getTopic() {
+    public static String getTopic() {
         return topic;
     }
 }
