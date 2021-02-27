@@ -65,17 +65,17 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.urgent:
                 if (checked)
-                    topic = "/mqtt_message_board/urgent";
+                    topic = "/mqtt_message_board/urgent/";
                 Toast.makeText(getBaseContext(), topic, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.task:
                 if (checked)
-                    topic = "/mqtt_message_board/task";
+                    topic = "/mqtt_message_board/task/";
                 Toast.makeText(getBaseContext(), topic, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.information:
                 if (checked)
-                    topic = "/mqtt_message_board/information";
+                    topic = "/mqtt_message_board/information/";
                 Toast.makeText(getBaseContext(), topic, Toast.LENGTH_SHORT).show();
                 break;
         }

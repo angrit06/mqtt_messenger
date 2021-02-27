@@ -55,18 +55,19 @@ public class SecondFragment extends Fragment {
         view.findViewById(R.id.sendMessage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(payload.getText().toString().isEmpty()){
-                    Toast.makeText(getActivity().getApplicationContext(),"Please enter your message!",Toast.LENGTH_SHORT).show();
+                if (payload.getText().toString().isEmpty()) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Please enter your message!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getActivity().getApplicationContext(),payload.getText().toString(),Toast.LENGTH_SHORT).show();
-                    publishMessgae(topic,payload.getText().toString());
+                    Toast.makeText(getActivity().getApplicationContext(), payload.getText().toString(), Toast.LENGTH_SHORT).show();
+                    publishMessgae(topic, payload.getText().toString());
                 }
             }
         });
     }
-    public void startMqtt(){
+
+    public void startMqtt() {
         client =
-                new MqttAndroidClient(getActivity().getApplicationContext(), "tcp://raspberrypi:1883",
+                new MqttAndroidClient(getActivity().getApplicationContext(), "tcp://192.168.2.122:1883",
                         clientId);
         try {
             IMqttToken token = client.connect();
@@ -74,13 +75,13 @@ public class SecondFragment extends Fragment {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
                     // We are connected
-                    Toast.makeText(getActivity().getApplicationContext(),"mqtt connection runs!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "mqtt connection runs!", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
                     // Something went wrong e.g. connection timeout or firewall problems
-                    Toast.makeText(getActivity().getApplicationContext(),"mqtt connection failed!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "mqtt connection failed!", Toast.LENGTH_SHORT).show();
 
                 }
             });
@@ -88,31 +89,33 @@ public class SecondFragment extends Fragment {
             e.printStackTrace();
         }
     }
-    public void publishMessgae(String topic, String payload){
+
+    public void publishMessgae(String topic, String payload) {
         MqttMessage message = new MqttMessage(payload.toString().getBytes());
         try {
             client.publish(topic, message);
-        } catch (MqttException e){
+        } catch (MqttException e) {
             e.printStackTrace();
         }
     }
-    public void subscribeMessage(String topic){
+
+    public void subscribeMessage(String topic) {
         int qos = 1;
         try {
             IMqttToken subToken = client.subscribe(topic, qos);
             subToken.setActionCallback(new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
-                    Toast.makeText(getActivity().getApplicationContext(),"subscription was successful!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "subscription was successful!", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                    Toast.makeText(getActivity().getApplicationContext(),"subscription was unsuccessful!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "subscription was unsuccessful!", Toast.LENGTH_SHORT).show();
 
                 }
             });
-        }catch (MqttException e) {
+        } catch (MqttException e) {
             e.printStackTrace();
         }
     }
