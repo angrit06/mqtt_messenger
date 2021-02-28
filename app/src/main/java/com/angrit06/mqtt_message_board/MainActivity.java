@@ -58,22 +58,22 @@ public class MainActivity extends AppCompatActivity {
             case R.id.urgent:
                 if (checked)
                     topic = "/mqtt_message_board/urgent/";
-                Toast.makeText(getBaseContext(), topic, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.task:
                 if (checked)
                     topic = "/mqtt_message_board/task/";
-                Toast.makeText(getBaseContext(), topic, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.information:
                 if (checked)
                     topic = "/mqtt_message_board/information/";
-                Toast.makeText(getBaseContext(), topic, Toast.LENGTH_SHORT).show();
                 break;
         }
     }
 
     public static String getTopic() {
+        if (topic == null){
+            topic = "/mqtt_message_board/urgent/";
+        }
         return topic;
     }
 }

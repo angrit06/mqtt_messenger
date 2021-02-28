@@ -42,46 +42,4 @@
         tools:layout_editor_absoluteY="550dp"
         tools:ignore="MissingConstraints" />
 
-<!--    <RadioGroup-->
-<!--        android:id="@+id/rgroup"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="172dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.159"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <RadioButton-->
-<!--            android:id="@+id/urgent"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:onClick="onRadioButtonClicked"-->
-<!--            android:text="urgent" />-->
-
-<!--        <RadioButton-->
-<!--            android:id="@+id/task"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:onClick="onRadioButtonClicked"-->
-<!--            android:text="task" />-->
-
-<!--        <RadioButton-->
-<!--            android:id="@+id/information"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:onClick="onRadioButtonClicked"-->
-<!--            android:text="information" />-->
-
-<!--    </RadioGroup>-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/theTopic"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="your choice: :"-->
-<!--        tools:layout_editor_absoluteX="76dp"-->
-<!--        tools:layout_editor_absoluteY="42dp" />-->
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

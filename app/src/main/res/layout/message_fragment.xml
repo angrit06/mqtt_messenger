@@ -6,7 +6,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".ChatActivity">
+tools:context=".MainActivity">
 
 <com.stfalcon.chatkit.messages.MessagesList
     android:id="@+id/messagesList"
@@ -35,16 +35,17 @@ tools:context=".ChatActivity">
         android:layout_height="wrap_content" />
 
     <RadioGroup
-        android:layout_width="285dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:background="#C6F8F8">
 
         <RadioButton
             android:id="@+id/urgent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:onClick="onRadioButtonClicked"
             android:text="urgent" />
 
@@ -65,8 +66,9 @@ tools:context=".ChatActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="70dp"
+        android:layout_width="104dp"
         android:layout_height="wrap_content"
+        android:background="#C6F8F8"
         android:text="Topic"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="visible" />

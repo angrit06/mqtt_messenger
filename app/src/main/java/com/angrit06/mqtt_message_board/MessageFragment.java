@@ -70,50 +70,23 @@ public class MessageFragment extends Fragment {
         mMessageInput.setInputListener(new MessageInput.InputListener() {
             @Override
             public boolean onSubmit(CharSequence input) {
-                if (!input.toString().isEmpty()){
+                if (!input.toString().isEmpty()) {
                     Date date = Calendar.getInstance().getTime();
                     User user = new User("Angrit", "gr", null);
-                    Message message1 = new Message("id", input.toString(), date, user);
+                    Message message = new Message("id", input.toString(), date, user);
                     String topic = MainActivity.getTopic();
-                    Toast.makeText(getActivity().getApplicationContext(),topic,Toast.LENGTH_SHORT).show();
-                    adapter.addToStart(message1, true);
-                    publishMessage(topic,input.toString());
+                    Toast.makeText(getActivity().getApplicationContext(), topic, Toast.LENGTH_SHORT).show();
+                    adapter.addToStart(message, true);
+                    publishMessage(topic, input.toString());
+                    return true;
 
                 }
                 return false;
             }
         });
         super.onViewCreated(view, savedInstanceState);
-//        view.findViewById(R.id.message).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity().getApplicationContext(),"test",Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
     }
-//    public void onRadioButtonClicked(View view) {
-//        boolean checked = ((RadioButton) view).isChecked();
-//
-//        switch (view.getId()) {
-//            case R.id.urgent:
-//                if (checked)
-//                    topic = "/mqtt_message_board/urgent/";
-//                Toast.makeText(getActivity().getBaseContext(), topic, Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.task:
-//                if (checked)
-//                    topic = "/mqtt_message_board/task/";
-//                Toast.makeText(getActivity().getBaseContext(), topic, Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.information:
-//                if (checked)
-//                    topic = "/mqtt_message_board/information/";
-//                Toast.makeText(getActivity().getBaseContext(), topic, Toast.LENGTH_SHORT).show();
-//                break;
-//        }
-//    }
-
 
     public void startMqtt() {
         client =
@@ -188,17 +161,17 @@ public class MessageFragment extends Fragment {
     }
 
 
-    private void onMessage(MqttMessage message){
+    private void onMessage(MqttMessage message) {
         String messageContent = message.toString();
-            User user = new User("MessageBoard", "gr", null);
+        User user = new User("MessageBoard", "gr", null);
 
-            Date date = Calendar.getInstance().getTime();
+        Date date = Calendar.getInstance().getTime();
 
-            String messageToDisplay = messageContent.substring(0, messageContent.length()-1);
+        String messageToDisplay = messageContent.substring(0, messageContent.length() - 1);
 
-            Message message_r = new Message("id_r", messageToDisplay, date, user);
+        Message message_r = new Message("id_r", messageToDisplay, date, user);
 
-            adapter.addToStart(message_r, true);
+        adapter.addToStart(message_r, true);
 
 
     }
