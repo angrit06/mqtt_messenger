@@ -14,12 +14,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RadioButton;
-import android.widget.Toast;
-
 
 public class MainActivity extends AppCompatActivity {
     private static String topic;
-//    String topic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRadioButtonClicked(View view) {
+        //check which button is active
         boolean checked = ((RadioButton) view).isChecked();
-
         switch (view.getId()) {
             case R.id.urgent:
                 if (checked)
@@ -71,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static String getTopic() {
+        // default topic is urgent
         if (topic == null){
             topic = "/mqtt_message_board/urgent/";
         }

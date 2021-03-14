@@ -11,13 +11,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.stfalcon.chatkit.messages.MessageInput;
 import com.stfalcon.chatkit.messages.MessagesList;
-
 import com.stfalcon.chatkit.messages.MessagesListAdapter;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
@@ -33,7 +30,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MessageFragment extends Fragment {
-
     private MessageViewModel mViewModel;
     MessagesList mMessagesList;
     private MessageInput mMessageInput;
@@ -55,7 +51,6 @@ public class MessageFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(MessageViewModel.class);
-        // TODO: Use the ViewModel
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -115,7 +110,7 @@ public class MessageFragment extends Fragment {
     }
 
     public void publishMessage(String topic, String payload) {
-        MqttMessage message = new MqttMessage(payload.toString().getBytes());
+        MqttMessage message = new MqttMessage(payload.getBytes());
         try {
             client.publish(topic, message);
         } catch (MqttException e) {

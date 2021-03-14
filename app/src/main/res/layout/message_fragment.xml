@@ -12,11 +12,11 @@ tools:context=".MainActivity">
     android:id="@+id/messagesList"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_above="@id/suggestionRecyclerView" />
+    android:layout_above="@id/recycler" />
 
 <androidx.recyclerview.widget.RecyclerView
 
-    android:id="@+id/suggestionRecyclerView"
+    android:id="@+id/recycler"
     android:layout_above="@id/message"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
@@ -32,14 +32,10 @@ tools:context=".MainActivity">
 
     <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <RadioGroup
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="30dp"
-        android:background="#C6F8F8">
+        android:background="@color/white">
 
         <RadioButton
             android:id="@+id/urgent"
@@ -68,7 +64,7 @@ tools:context=".MainActivity">
         android:id="@+id/textView"
         android:layout_width="104dp"
         android:layout_height="wrap_content"
-        android:background="#C6F8F8"
+        android:background="@color/white"
         android:text="Topic"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="visible" />
